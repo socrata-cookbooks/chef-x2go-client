@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Recipe:: default
+# Library:: matchers
 #
 # Copyright 2015 Socrata, Inc.
 #
@@ -18,6 +18,20 @@
 # limitations under the License.
 #
 
-x2go_client 'default' do
-  source node['x2go_client']['app']['source']
+if defined?(ChefSpec)
+  [:x2go_client, :x2go_client_app].each do |m|
+    ChefSpec.define_matcher(m)
+  end
+
+  [:create, :remove].each do |a|
+    define_method("#{a}_x2go_client") do |name|
+      ChefSpec::Matchers::ResourceMatcher.new(:x2go_client, a, name)
+    end
+  end
+
+  [:install, :remove].each do |a|
+    define_method("#{a}_x2go_client_app") do |name|
+      ChefSpec::Matchers::ResourceMatcher.new(:x2go_client_app, a, name)
+    end
+  end
 end

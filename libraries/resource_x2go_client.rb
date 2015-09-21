@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Recipe:: default
+# Library:: resource_x2go_client
 #
 # Copyright 2015 Socrata, Inc.
 #
@@ -18,6 +18,23 @@
 # limitations under the License.
 #
 
-x2go_client 'default' do
-  source node['x2go_client']['app']['source']
+require 'chef/resource/lwrp_base'
+require_relative 'provider_x2go_client'
+
+class Chef
+  class Resource
+    # A parent Chef resource for all the X2go client components.
+    #
+    # @author Jonathan Hartman <jonathan.hartman@socrata.com>
+    class X2goClient < LWRPBase
+      self.resource_name = :x2go_client
+      actions :create, :remove
+      default_action :create
+
+      #
+      # Attribute to allow an override of the default package source path/URL.
+      #
+      attribute :source, kind_of: String, default: nil
+    end
+  end
 end

@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Recipe:: default
+# Attributes:: default
 #
 # Copyright 2015 Socrata, Inc.
 #
@@ -18,6 +18,4 @@
 # limitations under the License.
 #
 
-x2go_client 'default' do
-  source node['x2go_client']['app']['source']
-end
+default['x2go_client']['app']['source'] = nil

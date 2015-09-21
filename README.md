@@ -10,65 +10,103 @@ X2go Client Cookbook
 [codeclimate]: https://codeclimate.com/github/socrata-cookbooks/chef-x2go-client
 [coveralls]: https://coveralls.io/r/socrata-cookbooks/chef-x2go-client
 
-TODO: Enter the cookbook description here.
+A Chef cookbook for the X2go remote desktop client.
 
 Requirements
 ============
 
-TODO: Describe cookbook dependencies.
+This cookbook currently supports Ubuntu Linux only.
 
 Usage
 =====
 
-TODO: Describe how to use the cookbook.
+Add the default recipe to your run_list or use one or more of the included
+resources in a recipe of your own.
 
 Recipes
 =======
 
 ***default***
 
-TODO: Describe each component recipe.
+Do a simple attribute-based install of the X2go client.
 
 Attributes
 ==========
 
 ***default***
 
-TODO: Describe any noteworthy attributes.
+    default['x2go_client']['app']['source'] = nil
+
+An optioanl source URL or file path to install the X2go client package from.
 
 Resources
 =========
 
 ***x2go_client***
 
-TODO: Describe each included resource.
+A parent resource for the X2go client components.
 
 Syntax:
 
-    x2go_client 'my_resource' do
-        attribute1 'value1'
-        action :create
+    x2go_client 'default' do
+      source 'http://example.com/x2go.package
+      action :create
     end
 
 Actions:
 
-| Action  | Description  |
-|---------|--------------|
-| action1 | Do something |
+| Action    | Description               |
+|-----------|---------------------------|
+| `:create` | Install the X2go client   |
+| `:remove` | Uninstall the X2go client |
 
 Attributes:
 
-| Attribute  | Default        | Description          |
-|------------|----------------|----------------------|
-| attribute1 | `'some_value'` | Do something         |
-| action     | `:create`      | Action(s) to perform |
+| Attribute | Default   | Description                         |
+|-----------|-----------|-------------------------------------|
+| source    | `nil`     | An optional custom package path/URL |
+| action    | `:create` | Action(s) to perform                |
+
+***x2go_client_app***
+
+A resource for installation and removal of X2go client app packages.
+
+Syntax:
+
+    x2go_client_app 'default' do
+      source 'http://example.com/x2go.package'
+      action :install
+    end
+
+Actions:
+
+| Action     | Description                       |
+|------------|-----------------------------------|
+| `:install` | Install the X2go client package   |
+| `:remove`  | Uninstall the X2go client package |
+
+Attributes:
+
+| Attribute | Default    | Description                         |
+|-----------|------------|-------------------------------------|
+| source    | `nil`      | An optional custom package path/URL |
+| action    | `:install` | Action(s) to perform                |
 
 Providers
 =========
 
-TODO: Describe each included provider
+***Chef::Provider::X2goClient***
 
-***Chef::Provider::SomeProvider***
+Platform-agnostic provider that wraps each of the X2go client component
+resources.
+
+***Chef::Provider::X2goClientApp***
+
+The parent for all platform-specific X2go client app package providers.
+
+***Chef::Provider::X2goClientApp::Ubuntu***
+
+App package provider for Ubuntu platforms.
 
 Contributing
 ============
