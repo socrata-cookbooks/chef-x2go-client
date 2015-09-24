@@ -18,6 +18,7 @@
 # limitations under the License.
 #
 
+require 'chef/dsl/include_recipe'
 require 'chef/provider/lwrp_base'
 require_relative 'provider_x2go_client_app'
 
@@ -30,6 +31,8 @@ class Chef
       class MacOsX < X2goClientApp
         PATH ||= '/Applications/x2goclient.app'
 
+        include Chef::DSL::IncludeRecipe
+
         provides :x2go_client_app, platform_family: 'mac_os_x'
 
         private
@@ -40,6 +43,7 @@ class Chef
         # (see Chef::Provider::X2goClientApp#install!)
         #
         def install!
+          include_recipe 'xquartz'
           s = new_resource.source || remote_path
           dmg_package 'x2goclient' do
             source s

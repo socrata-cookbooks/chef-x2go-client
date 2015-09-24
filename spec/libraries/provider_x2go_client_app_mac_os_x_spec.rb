@@ -47,7 +47,17 @@ describe Chef::Provider::X2goClientApp::MacOsX do
     before(:each) do
       allow_any_instance_of(described_class).to receive(:remote_path)
         .and_return('http://example.com/x2go.dmg')
-      allow_any_instance_of(described_class).to receive(:dmg_package)
+      [:include_recipe, :dmg_package].each do |m|
+        allow_any_instance_of(described_class).to receive(m)
+      end
+    end
+
+    shared_examples_for 'any attribute set' do
+      it 'installs XQuartz' do
+        p = provider
+        expect(p).to receive(:include_recipe).with('xquartz')
+        p.send(:install!)
+      end
     end
 
     context 'no source attribute' do
