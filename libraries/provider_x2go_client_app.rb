@@ -19,6 +19,7 @@
 #
 
 require 'chef/provider/lwrp_base'
+require_relative 'provider_x2go_client_app_mac_os_x'
 require_relative 'provider_x2go_client_app_ubuntu'
 
 class Chef

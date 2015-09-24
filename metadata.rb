@@ -9,7 +9,9 @@ description      'Installs/Configures x2go-client'
 long_description 'Installs/Configures x2go-client'
 version          '0.0.1'
 
+depends          'dmg', '~> 2.2'
 depends          'apt', '~> 2.6'
 
+supports         'mac_os_x'
 supports         'ubuntu'
 # rubocop:enable SingleSpaceBeforeFirstArg

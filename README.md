@@ -1,12 +1,14 @@
 X2go Client Cookbook
 ====================
 [![Cookbook Version](https://img.shields.io/cookbook/v/x2go-client.svg)][cookbook]
-[![Build Status](https://img.shields.io/travis/socrata-cookbooks/chef-x2go-client.svg)][travis]
+[![OS X Build Status](https://img.shields.io/travis/socrata-cookbooks/chef-x2go-client.svg)][travis]
+[![Linux Build Status](https://img.shields.io/circleci/project/socrata-cookbooks/chef-x2go-client.svg)][circle]
 [![Code Climate](https://img.shields.io/codeclimate/github/socrata-cookbooks/chef-x2go-client.svg)][codeclimate]
 [![Coverage Status](https://img.shields.io/coveralls/socrata-cookbooks/chef-x2go-client.svg)][coveralls]
 
 [cookbook]: https://supermarket.chef.io/cookbooks/x2go-client
 [travis]: https://travis-ci.org/socrata-cookbooks/chef-x2go-client
+[circle]: https://circleci.com/gh/socrata-cookbooks/chef-x2go-client
 [codeclimate]: https://codeclimate.com/github/socrata-cookbooks/chef-x2go-client
 [coveralls]: https://coveralls.io/r/socrata-cookbooks/chef-x2go-client
 
@@ -15,7 +17,7 @@ A Chef cookbook for the X2go remote desktop client.
 Requirements
 ============
 
-This cookbook currently supports Ubuntu Linux only.
+This cookbook currently supports Ubuntu Linux and Mac OS X only.
 
 Usage
 =====
@@ -103,6 +105,10 @@ resources.
 ***Chef::Provider::X2goClientApp***
 
 The parent for all platform-specific X2go client app package providers.
+
+***Chef::Provider::X2goClientApp::MacOsX***
+
+App package provider for OS X platforms.
 
 ***Chef::Provider::X2goClientApp::Ubuntu***
 
