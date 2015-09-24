@@ -12,6 +12,9 @@ platforms:
       box: roboticcheese/macosx-10.10
       ssh:
         insert_key: false
+  - name: windows-2012
+    driver:
+      box: roboticcheese/windows-2012
   # TODO: - name: ubuntu-12.04
   # TODO: - name: debian-8.2
   # TODO: - name: centos-7.1

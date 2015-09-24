@@ -18,7 +18,6 @@
 # limitations under the License.
 #
 
-require 'chef/dsl/include_recipe'
 require 'chef/provider/lwrp_base'
 require_relative 'provider_x2go_client_app'
 
@@ -30,8 +29,6 @@ class Chef
       # @author Jonathan Hartman <jonathan.hartman@socrata.com>
       class MacOsX < X2goClientApp
         PATH ||= '/Applications/x2goclient.app'
-
-        include Chef::DSL::IncludeRecipe
 
         provides :x2go_client_app, platform_family: 'mac_os_x'
 

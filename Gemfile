@@ -24,6 +24,7 @@ group :test do
   gem 'fauxhai'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
+  gem 'winrm-transport'
   gem 'kitchen-docker'
   gem 'kitchen-localhost'
 end
