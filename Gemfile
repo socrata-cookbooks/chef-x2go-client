@@ -25,6 +25,7 @@ group :test do
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
   gem 'kitchen-docker'
+  gem 'kitchen-localhost'
 end
 
 group :integration do

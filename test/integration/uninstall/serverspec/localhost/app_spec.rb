@@ -9,9 +9,15 @@ describe 'x2go-client::app' do
     end
   end
 
-  describe package('x2goclient') do
+  describe package('x2goclient'), if: os[:family] != 'darwin' do
     it 'is not installed' do
       expect(subject).to_not be_installed
+    end
+  end
+
+  describe file('/Applications/x2goclient.app'), if: os[:family] == 'darwin' do
+    it 'does not exist' do
+      expect(subject).to_not be_directory
     end
   end
 end
