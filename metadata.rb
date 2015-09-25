@@ -7,7 +7,7 @@ maintainer_email 'jonathan.hartman@socrata.com'
 license          'apache2'
 description      'Installs/Configures x2go-client'
 long_description 'Installs/Configures x2go-client'
-version          '0.0.1'
+version          '0.1.0'
 
 depends          'xquartz', '~> 1.1'
 depends          'dmg', '~> 2.2'
