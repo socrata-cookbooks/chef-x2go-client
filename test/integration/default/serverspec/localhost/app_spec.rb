@@ -15,6 +15,13 @@ describe 'x2go-client::app' do
     end
   end
 
+  describe file('/Applications/Utilities/XQuartz.app'),
+           if: os[:family] == 'darwin' do
+    it 'exists' do
+      expect(subject).to be_directory
+    end
+  end
+
   describe file('/Applications/x2goclient.app'), if: os[:family] == 'darwin' do
     it 'exists' do
       expect(subject).to be_directory

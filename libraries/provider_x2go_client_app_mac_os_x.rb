@@ -43,6 +43,7 @@ class Chef
         # (see Chef::Provider::X2goClientApp#install!)
         #
         def install!
+          include_recipe 'xquartz'
           s = new_resource.source || remote_path
           dmg_package 'x2goclient' do
             source s
