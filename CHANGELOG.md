@@ -1,6 +1,9 @@
 X2go Client Cookbook CHANGELOG
 ==============================
 
+v?.?.? (????-??-??)
+-------------------
+
 v0.1.0 (2015-09-25)
 -------------------
 - Initial release with OS X, Windows, and Ubuntu support
