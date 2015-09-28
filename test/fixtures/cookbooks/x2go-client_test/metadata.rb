@@ -18,4 +18,5 @@ supports         'debian'
 supports         'redhat'
 supports         'centos'
 supports         'scientific'
+supports         'fedora'
 # rubocop:enable SingleSpaceBeforeFirstArg

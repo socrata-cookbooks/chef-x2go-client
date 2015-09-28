@@ -8,3 +8,6 @@ platforms:
   - name: debian-8.2
   - name: centos-7
   - name: centos-6
+  # TODO: Pending either Chef fixes for DNF in Fedora 22 or a Fedora 21 Docker
+  # container with Systemd
+  # - name: fedora-22
