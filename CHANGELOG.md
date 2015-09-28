@@ -1,7 +1,7 @@
 X2go Client Cookbook CHANGELOG
 ==============================
 
-v?.?.? (????-??-??)
+v0.2.0 (2015-09-28)
 -------------------
 - Add RHEL/CentOS/Scientific/etc. support
 - Add Debian support
