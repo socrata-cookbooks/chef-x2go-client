@@ -19,7 +19,10 @@ A Chef cookbook for the X2go remote desktop client.
 Requirements
 ============
 
-This cookbook currently supports Ubuntu Linux, Mac OS X, and Windows.
+This cookbook requires Chef 12+.
+
+It currently supports Mac OS X, Windows, Ubuntu, and Red Hat/CentoS/Scientific/
+etc.
 
 Usage
 =====
@@ -107,6 +110,10 @@ resources.
 ***Chef::Provider::X2goClientApp***
 
 The parent for all platform-specific X2go client app package providers.
+
+***Chef::Provider::X2goClientApp::Rhel***
+
+App package provider for RHEL and RHEL-alike platforms.
 
 ***Chef::Provider::X2goClientApp::MacOsX***
 

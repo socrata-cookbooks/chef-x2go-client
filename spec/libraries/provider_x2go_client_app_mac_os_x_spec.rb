@@ -63,6 +63,8 @@ describe Chef::Provider::X2goClientApp::MacOsX do
     context 'no source attribute' do
       let(:source) { nil }
 
+      it_behaves_like 'any attribute set'
+
       it 'downloads and installs a remote package' do
         p = provider
         expect(p).to receive(:dmg_package).with('x2goclient').and_yield
@@ -73,6 +75,8 @@ describe Chef::Provider::X2goClientApp::MacOsX do
 
     context 'a source attribute' do
       let(:source) { '/tmp/package.dmg' }
+
+      it_behaves_like 'any attribute set'
 
       it 'installs the X2go client package from the source' do
         p = provider

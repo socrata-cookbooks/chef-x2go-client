@@ -3,7 +3,7 @@
 # Cookbook Name:: x2go-client
 # Library:: provider_x2go_client
 #
-# Copyright 2014-2015 Jonathan Hartman
+# Copyright 2015 Socrata, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
