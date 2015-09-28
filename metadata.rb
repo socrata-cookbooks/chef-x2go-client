@@ -13,8 +13,12 @@ depends          'xquartz', '~> 1.1'
 depends          'dmg', '~> 2.2'
 depends          'windows', '~> 1.38'
 depends          'apt', '~> 2.6'
+depends          'yum-epel', '~> 0.6'
 
 supports         'mac_os_x'
 supports         'windows'
 supports         'ubuntu'
+supports         'redhat'
+supports         'centos'
+supports         'scientific'
 # rubocop:enable SingleSpaceBeforeFirstArg

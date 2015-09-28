@@ -5,3 +5,5 @@ driver:
 
 platforms:
   - name: ubuntu-14.04
+  - name: centos-7
+  - name: centos-6

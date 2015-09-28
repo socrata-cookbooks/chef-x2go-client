@@ -14,4 +14,7 @@ depends          'x2go-client'
 supports         'mac_os_x'
 supports         'windows'
 supports         'ubuntu'
+supports         'redhat'
+supports         'centos'
+supports         'scientific'
 # rubocop:enable SingleSpaceBeforeFirstArg
