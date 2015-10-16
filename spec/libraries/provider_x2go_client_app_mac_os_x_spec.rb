@@ -5,8 +5,9 @@ require_relative '../../libraries/provider_x2go_client_app_mac_os_x'
 
 describe Chef::Provider::X2goClientApp::MacOsX do
   let(:name) { 'default' }
-  let(:new_resource) { Chef::Resource::X2goClientApp.new(name, nil) }
-  let(:provider) { described_class.new(new_resource, nil) }
+  let(:run_context) { ChefSpec::SoloRunner.new.converge.run_context }
+  let(:new_resource) { Chef::Resource::X2goClientApp.new(name, run_context) }
+  let(:provider) { described_class.new(new_resource, run_context) }
 
   describe 'PATH' do
     it 'returns the correct application path' do
