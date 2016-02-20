@@ -3,7 +3,7 @@
 # Cookbook Name:: x2go-client
 # Library:: provider_x2go_client_app_windows
 #
-# Copyright 2015 Socrata, Inc.
+# Copyright 2015-2016, Socrata, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ class Chef
       #
       # @author Jonathan Hartman <jonathan.hartman@socrata.com>
       class Windows < X2goClientApp
-        PATH ||= ::File.expand_path('/Program Files (x86)/x2goclient')
+        PATH ||= ::File.expand_path('/Program Files (x86)/x2goclient').freeze
         URL ||= 'http://code.x2go.org/releases/' \
-                'X2GoClient_latest_mswin32-setup.exe'
+                'X2GoClient_latest_mswin32-setup.exe'.freeze
 
         provides :x2go_client_app, platform_family: 'windows'
 

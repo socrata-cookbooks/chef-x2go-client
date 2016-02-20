@@ -1,6 +1,5 @@
 # Encoding: UTF-8
-#
-# rubocop:disable SingleSpaceBeforeFirstArg
+
 name             'x2go-client'
 maintainer       'Jonathan Hartman'
 maintainer_email 'jonathan.hartman@socrata.com'
@@ -23,4 +22,3 @@ supports         'redhat'
 supports         'centos'
 supports         'scientific'
 supports         'fedora'
-# rubocop:enable SingleSpaceBeforeFirstArg

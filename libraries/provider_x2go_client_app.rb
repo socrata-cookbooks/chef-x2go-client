@@ -3,7 +3,7 @@
 # Cookbook Name:: x2go-client
 # Library:: provider_x2go_client_app
 #
-# Copyright 2015 Socrata, Inc.
+# Copyright 2015-2016, Socrata, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -65,8 +65,10 @@ class Chef
       # @raise [NotImplementedError] if not defined for this provider
       #
       def install!
-        fail(NotImplementedError,
-             "`install!` method must be implemented for #{self.class} provider")
+        raise(
+          NotImplementedError,
+          "`install!` method must be implemented for #{self.class} provider"
+        )
       end
 
       #
@@ -75,8 +77,10 @@ class Chef
       # @raise [NotImplementedError] if not defined for this provider
       #
       def remove!
-        fail(NotImplementedError,
-             "`remove!` method must be implemented for #{self.class} provider")
+        raise(
+          NotImplementedError,
+          "`remove!` method must be implemented for #{self.class} provider"
+        )
       end
     end
   end

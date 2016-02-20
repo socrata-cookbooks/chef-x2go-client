@@ -3,7 +3,7 @@
 # Cookbook Name:: x2go-client
 # Library:: provider_x2go_client_app_mac_os_x
 #
-# Copyright 2015 Socrata, Inc.
+# Copyright 2015-2016, Socrata, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ class Chef
       #
       # @author Jonathan Hartman <jonathan.hartman@socrata.com>
       class MacOsX < X2goClientApp
-        PATH ||= '/Applications/x2goclient.app'
+        PATH ||= '/Applications/x2goclient.app'.freeze
 
         include Chef::DSL::IncludeRecipe
 
