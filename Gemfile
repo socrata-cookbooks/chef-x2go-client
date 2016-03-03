@@ -23,6 +23,7 @@ group :test do
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
   gem 'winrm-transport'
+  gem 'winrm-fs'
   gem 'kitchen-docker'
   gem 'kitchen-localhost'
 end

@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Library:: resource_x2go_client_app
+# Library:: resource_x2go_client_app_fedora
 #
 # Copyright 2015-2016, Socrata, Inc.
 #
@@ -18,26 +18,28 @@
 # limitations under the License.
 #
 
-require 'chef/resource'
+require_relative 'resource_x2go_client_app'
 
 class Chef
   class Resource
-    # A Chef resource for the X2go client app.
+    # A Fedora implementation of the x2go_client_app resource.
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
-    class X2goClientApp < Resource
-      default_action :install
+    class X2goClientAppFedora < X2goClientApp
+      provides :x2go_client_app, platform: 'fedora'
 
       #
-      # Property to allow an override of the default package source path/URL.
+      # Install the X2go client package, no special repository needed.
       #
-      property :source, kind_of: String, default: nil
+      action :install do
+        package(new_resource.source || 'x2goclient')
+      end
 
-      %i(install remove).each do |a|
-        action a do
-          raise(NotImplementedError,
-                "Action '#{a}' must be implemented for '#{self.class}'")
-        end
+      #
+      # Remove the X2go client package.
+      #
+      action :remove do
+        package('x2goclient') { action :remove }
       end
     end
   end

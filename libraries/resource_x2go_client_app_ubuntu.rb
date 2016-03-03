@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Library:: resource_x2go_client
+# Library:: resource_x2go_client_app_ubuntu
 #
 # Copyright 2015-2016, Socrata, Inc.
 #
@@ -18,35 +18,37 @@
 # limitations under the License.
 #
 
-require 'chef/resource'
+require 'chef/dsl/include_recipe'
+require_relative 'resource_x2go_client_app'
 
 class Chef
   class Resource
-    # A parent Chef resource for all the X2go client components.
+    # A Ubuntu implementation of the x2go_client_app resource.
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
-    class X2goClient < Resource
-      provides :x2go_client
+    class X2goClientAppUbuntu < X2goClientApp
+      include Chef::DSL::IncludeRecipe
 
-      default_action :create
-
-      #
-      # Property to allow an override of the default package source path/URL.
-      #
-      property :source, kind_of: String, default: nil
+      provides :x2go_client_app, platform: 'ubuntu'
 
       #
-      # Install the X2go client app.
+      # Set up the X2go APT repo and install the client package.
       #
-      action :create do
-        x2go_client_app(new_resource.name) { source new_resource.source }
+      action :install do
+        include_recipe 'apt'
+        new_resource.source.nil? && apt_repository('x2go') do
+          uri 'ppa:x2go/stable'
+          distribution node['lsb']['codename']
+        end
+        package(new_resource.source || 'x2goclient')
       end
 
       #
-      # Uninstall the X2go client app.
+      # Uninstall the X2go client package and remove the APT repo.
       #
       action :remove do
-        x2go_client_app(new_resource.name) { action :remove }
+        package('x2goclient') { action :remove }
+        apt_repository('x2go') { action :remove }
       end
     end
   end

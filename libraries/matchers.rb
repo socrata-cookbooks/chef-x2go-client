@@ -19,19 +19,16 @@
 #
 
 if defined?(ChefSpec)
-  [:x2go_client, :x2go_client_app].each do |m|
-    ChefSpec.define_matcher(m)
-  end
+  {
+    x2go_client: %i(create remove),
+    x2go_client_app: %i(install remove)
+  }.each do |matcher, actions|
+    ChefSpec.define_matcher(matcher)
 
-  [:create, :remove].each do |a|
-    define_method("#{a}_x2go_client") do |name|
-      ChefSpec::Matchers::ResourceMatcher.new(:x2go_client, a, name)
-    end
-  end
-
-  [:install, :remove].each do |a|
-    define_method("#{a}_x2go_client_app") do |name|
-      ChefSpec::Matchers::ResourceMatcher.new(:x2go_client_app, a, name)
+    actions.each do |action|
+      define_method("#{action}_#{matcher}") do |name|
+        ChefSpec::Matchers::ResourceMatcher.new(matcher, action, name)
+      end
     end
   end
 end

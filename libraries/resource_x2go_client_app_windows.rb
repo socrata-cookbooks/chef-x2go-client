@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: x2go-client
-# Library:: resource_x2go_client_app
+# Library:: resource_x2go_client_app_windows
 #
 # Copyright 2015-2016, Socrata, Inc.
 #
@@ -18,25 +18,32 @@
 # limitations under the License.
 #
 
-require 'chef/resource'
+require_relative 'resource_x2go_client_app'
 
 class Chef
   class Resource
-    # A Chef resource for the X2go client app.
+    # A Windows implementation of the x2go_client_app resource.
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
-    class X2goClientApp < Resource
-      default_action :install
+    class X2goClientAppWindows < X2goClientApp
+      PATH ||= ::File.expand_path('/Program Files (x86)/x2goclient').freeze
+      URL ||= 'http://code.x2go.org/releases/' \
+              'X2GoClient_latest_mswin32-setup.exe'.freeze
+
+      provides :x2go_client_app, platform_family: 'windows'
 
       #
-      # Property to allow an override of the default package source path/URL.
+      # Use a windows_package resource to download and install and remove the
+      # X2go client.
       #
-      property :source, kind_of: String, default: nil
-
       %i(install remove).each do |a|
         action a do
-          raise(NotImplementedError,
-                "Action '#{a}' must be implemented for '#{self.class}'")
+          s = new_resource.source || URL
+          windows_package 'X2Go Client for Windows' do
+            source s
+            installer_type :nsis
+            action a
+          end
         end
       end
     end
