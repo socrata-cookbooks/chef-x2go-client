@@ -11,7 +11,7 @@ version          '0.2.1'
 depends          'xquartz', '~> 1.1'
 depends          'dmg', '~> 2.2'
 depends          'windows', '~> 1.38'
-depends          'apt', '~> 2.6'
+depends          'apt', '~> 3.0'
 depends          'yum-epel', '~> 0.6'
 
 supports         'mac_os_x'

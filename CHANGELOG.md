@@ -1,8 +1,9 @@
 X2go Client Cookbook CHANGELOG
 ==============================
 
-v?.?.? (????-??-??)
--------------------
+Unreleased
+----------
+- Update apt dependency from 2.x to 3.x
 
 v0.2.0 (2015-09-28)
 -------------------
