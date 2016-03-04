@@ -25,6 +25,6 @@ suites:
   - name: default
     run_list:
       - recipe[x2go-client]
-  - name: uninstall
+  - name: remove
     run_list:
-      - recipe[x2go-client_test::uninstall]
+      - recipe[x2go-client_test::remove]

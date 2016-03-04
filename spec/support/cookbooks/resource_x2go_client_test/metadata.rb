@@ -1,18 +1,14 @@
 # Encoding: UTF-8
 
-name             'x2go-client'
+name             'resource_x2go_client_test'
 maintainer       'Jonathan Hartman'
 maintainer_email 'jonathan.hartman@socrata.com'
 license          'apache2'
-description      'Installs/Configures x2go-client'
-long_description 'Installs/Configures x2go-client'
-version          '0.2.1'
+description      'x2go_client resource test wrapper'
+long_description 'x2go_client resource test wrapper'
+version          '0.0.1'
 
-depends          'xquartz', '~> 1.1'
-depends          'dmg', '~> 2.2'
-depends          'windows', '~> 1.38'
-depends          'apt', '~> 3.0'
-depends          'yum-epel', '~> 0.6'
+depends          'x2go-client'
 
 supports         'mac_os_x'
 supports         'windows'
