@@ -8,6 +8,10 @@ license 'apache2'
 description 'Installs/Configures x2go-client'
 long_description 'Installs/Configures x2go-client'
 version '1.0.1'
+chef_version '>= 12.1'
+
+source_url 'https://github.com/socrata-cookbooks/x2go-client'
+issues_url 'https://github.com/socrata-cookbooks/x2go-client/issues'
 
 depends 'xquartz', '~> 1.1'
 depends 'dmg', '~> 3.0'

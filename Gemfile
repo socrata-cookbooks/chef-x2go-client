@@ -1,4 +1,5 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 
 source 'https://rubygems.org'
 
@@ -22,7 +23,6 @@ group :test do
   gem 'fauxhai'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
-  gem 'winrm-transport'
   gem 'winrm-fs'
   gem 'kitchen-docker'
   gem 'kitchen-localhost'
@@ -37,6 +37,6 @@ group :deploy do
 end
 
 group :production do
-  gem 'chef', '>= 11'
+  gem 'chef', '>= 12.5'
   gem 'berkshelf'
 end
