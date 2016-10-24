@@ -7,7 +7,7 @@ describe 'resource_x2go_client_app::redhat::7_1' do
     ChefSpec::SoloRunner.new(
       step_into: 'x2go_client_app', platform: 'redhat', version: '7.1'
     ) do |node|
-      node.set['x2go_client']['app']['source'] = source unless source.nil?
+      node.default['x2go_client']['app']['source'] = source unless source.nil?
     end
   end
   let(:converge) { runner.converge("resource_x2go_client_app_test::#{action}") }

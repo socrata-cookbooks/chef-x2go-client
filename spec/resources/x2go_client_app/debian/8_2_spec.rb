@@ -7,7 +7,7 @@ describe 'resource_x2go_client_app::debian::8_2' do
     ChefSpec::SoloRunner.new(
       step_into: 'x2go_client_app', platform: 'debian', version: '8.2'
     ) do |node|
-      node.set['x2go_client']['app']['source'] = source unless source.nil?
+      node.default['x2go_client']['app']['source'] = source unless source.nil?
     end
   end
   let(:converge) { runner.converge("resource_x2go_client_app_test::#{action}") }
