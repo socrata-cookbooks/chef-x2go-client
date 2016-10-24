@@ -1,59 +1,15 @@
-require_relative '../../../spec_helper'
+# encoding: utf-8
+# frozen_string_literal: true
 
-describe 'resource_x2go_client_app::mac_os_x::10_11_1' do
-  let(:source) { nil }
-  let(:action) { nil }
-  let(:runner) do
-    ChefSpec::SoloRunner.new(
-      step_into: 'x2go_client_app', platform: 'mac_os_x', version: '10.11.1'
-    ) do |node|
-      node.default['x2go_client']['app']['source'] = source unless source.nil?
-    end
-  end
-  let(:converge) { runner.converge("resource_x2go_client_app_test::#{action}") }
+require_relative '../mac_os_x'
 
-  context 'the default action (:install)' do
-    let(:action) { :default }
+describe 'resources::x2go_client_app::mac_os_x::10_11_1' do
+  include_context 'resources::x2go_client_app::mac_os_x'
 
-    shared_examples_for 'any attribute set' do
-      it 'installs xquartz' do
-        expect(chef_run).to include_recipe('xquartz')
-      end
-    end
+  let(:platform) { 'mac_os_x' }
+  let(:platform_version) { '10.11.1' }
 
-    context 'the default attributes' do
-      let(:source) { nil }
-      cached(:chef_run) { converge }
+  let(:package_filename) { 'X2GoClient_latest_macosx_10_9.dmg' }
 
-      it_behaves_like 'any attribute set'
-
-      it 'installs from the default download URL' do
-        expect(chef_run).to install_dmg_package('x2goclient')
-          .with(source: 'http://code.x2go.org/releases/X2GoClient_latest_' \
-                        'macosx_10_9.dmg')
-      end
-    end
-
-    context 'a source attribute' do
-      let(:source) { 'https://example.com/x2go.pkg' }
-      cached(:chef_run) { converge }
-
-      it_behaves_like 'any attribute set'
-
-      it 'installs from the source URL' do
-        expect(chef_run).to install_dmg_package('x2goclient')
-          .with(source: source)
-      end
-    end
-  end
-
-  context 'the :remove action' do
-    let(:action) { :remove }
-    cached(:chef_run) { converge }
-
-    it 'deletes the main application directory' do
-      expect(chef_run).to delete_directory('/Applications/x2goclient.app')
-        .with(recursive: true)
-    end
-  end
+  it_behaves_like 'any MacOS platform'
 end
