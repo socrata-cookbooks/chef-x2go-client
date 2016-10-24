@@ -4,6 +4,8 @@ X2go Client Cookbook CHANGELOG
 Unreleased
 ----------
 - Update dependency cookbook pins
+- Clean up new style offenses
+- Remove direct dependency on the apt cookbook
 
 v1.0.0 (2016-03-03)
 -------------------

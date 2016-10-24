@@ -16,7 +16,6 @@ issues_url 'https://github.com/socrata-cookbooks/x2go-client/issues'
 depends 'xquartz', '~> 1.1'
 depends 'dmg', '~> 3.0'
 depends 'windows', '~> 2.0'
-depends 'apt', '~> 5.0'
 depends 'yum-epel', '~> 1.0'
 
 supports 'mac_os_x'

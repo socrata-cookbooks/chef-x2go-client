@@ -18,7 +18,6 @@
 # limitations under the License.
 #
 
-require 'chef/dsl/include_recipe'
 require_relative 'resource_x2go_client_app'
 
 class Chef
@@ -27,15 +26,12 @@ class Chef
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
     class X2goClientAppUbuntu < X2goClientApp
-      include Chef::DSL::IncludeRecipe
-
       provides :x2go_client_app, platform: 'ubuntu'
 
       #
       # Set up the X2go APT repo and install the client package.
       #
       action :install do
-        include_recipe 'apt'
         new_resource.source.nil? && apt_repository('x2go') do
           uri 'ppa:x2go/stable'
           distribution node['lsb']['codename']

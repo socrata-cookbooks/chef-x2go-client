@@ -15,17 +15,9 @@ describe 'resource_x2go_client_app::ubuntu::14_04' do
   context 'the default action (:install)' do
     let(:action) { :default }
 
-    shared_examples_for 'any attribute set' do
-      it 'ensures the apt cache is up to date' do
-        expect(chef_run).to include_recipe('apt')
-      end
-    end
-
     context 'the default attributes' do
       let(:source) { nil }
       cached(:chef_run) { converge }
-
-      it_behaves_like 'any attribute set'
 
       it 'configures the X2go APT repo' do
         expect(chef_run).to add_apt_repository('x2go')
@@ -40,8 +32,6 @@ describe 'resource_x2go_client_app::ubuntu::14_04' do
     context 'a source attribute' do
       let(:source) { 'https://example.com/x2go.pkg' }
       cached(:chef_run) { converge }
-
-      it_behaves_like 'any attribute set'
 
       it 'does not configure the X2go APT repo' do
         expect(chef_run).to_not add_apt_repository('x2go')
