@@ -1,20 +1,12 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 
-name             'x2go-client_test'
-maintainer       'Jonathan Hartman'
+name 'x2go-client_test'
+maintainer 'Jonathan Hartman'
 maintainer_email 'jonathan.hartman@socrata.com'
-license          'apache2'
-description      'x2go-client_test'
+license 'apache2'
+description 'x2go-client_test'
 long_description 'x2go-client_test'
-version          '0.0.1'
+version '0.0.1'
 
-depends          'x2go-client'
-
-supports         'mac_os_x'
-supports         'windows'
-supports         'ubuntu'
-supports         'debian'
-supports         'redhat'
-supports         'centos'
-supports         'scientific'
-supports         'fedora'
+depends 'x2go-client'
