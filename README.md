@@ -19,7 +19,7 @@ A Chef cookbook for the X2go remote desktop client.
 Requirements
 ============
 
-This cookbook requires Chef 12+.
+This cookbook requires Chef 12.6+.
 
 It currently supports Mac OS X, Windows, Ubuntu, and Red Hat/CentoS/Scientific/
 etc.
