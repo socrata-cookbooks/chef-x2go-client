@@ -1,4 +1,5 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 #
 # Cookbook Name:: x2go-client
 # Library:: resource_x2go_client_app_mac_os_x
@@ -27,7 +28,7 @@ class Chef
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
     class X2goClientAppMacOsX < X2goClientApp
-      PATH ||= '/Applications/x2goclient.app'.freeze
+      PATH ||= '/Applications/x2goclient.app'
 
       include Chef::DSL::IncludeRecipe
 
@@ -62,12 +63,12 @@ class Chef
       #
       def remote_path
         pv = node['platform_version']
-        url = 'http://code.x2go.org/releases/'
-        url << if Gem::Version.new(pv) >= Gem::Version.new('10.9')
+        file = if Gem::Version.new(pv) >= Gem::Version.new('10.9')
                  'X2GoClient_latest_macosx_10_9.dmg'
                else
                  'X2GoClient_latest_macosx.dmg'
                end
+        "http://code.x2go.org/releases/#{file}"
       end
     end
   end

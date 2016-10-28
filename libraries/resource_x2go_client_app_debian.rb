@@ -1,4 +1,5 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 #
 # Cookbook Name:: x2go-client
 # Library:: resource_x2go_client_app_debian
@@ -18,7 +19,6 @@
 # limitations under the License.
 #
 
-require 'chef/dsl/include_recipe'
 require_relative 'resource_x2go_client_app'
 
 class Chef
@@ -27,15 +27,12 @@ class Chef
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
     class X2goClientAppDebian < X2goClientApp
-      include Chef::DSL::IncludeRecipe
-
       provides :x2go_client_app, platform: 'debian'
 
       #
       # Set up the X2go APT repo and install the client packages.
       #
       action :install do
-        include_recipe 'apt'
         new_resource.source.nil? && apt_repository('x2go') do
           uri 'http://packages.x2go.org/debian'
           distribution node['lsb']['codename']
