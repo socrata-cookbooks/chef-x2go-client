@@ -27,9 +27,9 @@ class Chef
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
     class X2goClientAppWindows < X2goClientApp
-      PATH ||= ::File.expand_path('/Program Files (x86)/x2goclient').freeze
+      PATH ||= ::File.expand_path('/Program Files (x86)/x2goclient')
       URL ||= 'http://code.x2go.org/releases/' \
-              'X2GoClient_latest_mswin32-setup.exe'.freeze
+              'X2GoClient_latest_mswin32-setup.exe'
 
       provides :x2go_client_app, platform_family: 'windows'
 

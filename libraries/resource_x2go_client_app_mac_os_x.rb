@@ -28,7 +28,7 @@ class Chef
     #
     # @author Jonathan Hartman <jonathan.hartman@socrata.com>
     class X2goClientAppMacOsX < X2goClientApp
-      PATH ||= '/Applications/x2goclient.app'.freeze
+      PATH ||= '/Applications/x2goclient.app'
 
       include Chef::DSL::IncludeRecipe
 
