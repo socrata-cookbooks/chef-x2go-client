@@ -1,12 +1,12 @@
 X2go Client Cookbook CHANGELOG
 ==============================
 
-Unreleased
-----------
-- Update dependency cookbook pins
-- Clean up new style offenses
-- Remove direct dependency on the apt cookbook
-- Remove direct dependency on the windows cookbook
+v1.1.0 (2016-10-31)
+-------------------
+- Update spooky dependency cookbook pins
+- Clean up creepy style offenses
+- Remove direct dependency on the frightening apt cookbook
+- Remove direct dependency on the ghostly windows cookbook
 
 v1.0.0 (2016-03-03)
 -------------------

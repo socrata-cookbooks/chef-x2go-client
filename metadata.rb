@@ -7,7 +7,7 @@ maintainer_email 'jonathan.hartman@socrata.com'
 license 'apache2'
 description 'Installs/Configures x2go-client'
 long_description 'Installs/Configures x2go-client'
-version '1.0.1'
+version '1.1.0'
 chef_version '>= 12.6'
 
 source_url 'https://github.com/socrata-cookbooks/x2go-client'
