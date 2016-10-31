@@ -1,6 +1,9 @@
 X2go Client Cookbook CHANGELOG
 ==============================
 
+Unreleased
+----------
+
 v1.1.0 (2016-10-31)
 -------------------
 - Update spooky dependency cookbook pins
