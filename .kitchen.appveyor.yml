@@ -1,7 +1,6 @@
 ---
 driver:
-  name: localhost
-  clean_up_on_destroy: false
+  name: exec
 
 platforms:
   - name: windows

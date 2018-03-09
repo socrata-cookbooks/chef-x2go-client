@@ -28,7 +28,6 @@ end
 group :integration do
   gem 'kitchen-docker'
   gem 'kitchen-inspec'
-  gem 'kitchen-localhost'
   gem 'kitchen-vagrant'
   gem 'test-kitchen'
   gem 'winrm-fs'
