@@ -14,8 +14,8 @@ source_url 'https://github.com/socrata-cookbooks/x2go-client'
 issues_url 'https://github.com/socrata-cookbooks/x2go-client/issues'
 
 depends 'xquartz', '~> 1.1'
-depends 'dmg', '~> 3.0'
-depends 'yum-epel', '~> 1.0'
+depends 'dmg', '< 5'
+depends 'yum-epel', '< 4'
 
 supports 'mac_os_x'
 supports 'windows'

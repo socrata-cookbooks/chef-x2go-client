@@ -3,6 +3,7 @@ X2go Client Cookbook CHANGELOG
 
 Unreleased
 ----------
+- Update the dependency version pins
 
 v1.1.0 (2016-10-31)
 -------------------
