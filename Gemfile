@@ -1,42 +1,39 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
 
+gem 'berkshelf'
+gem 'rake'
+
 group :development do
-  gem 'yard-chef'
   gem 'guard'
   gem 'guard-foodcritic'
-  gem 'guard-rspec'
   gem 'guard-kitchen'
+  gem 'guard-rspec'
 end
 
-group :test do
-  gem 'rake'
-  gem 'rubocop'
-  gem 'foodcritic'
-  gem 'rspec'
+group :unit do
   gem 'chefspec'
+  gem 'coveralls'
+  gem 'rspec'
   gem 'simplecov'
   gem 'simplecov-console'
-  gem 'coveralls'
-  gem 'fauxhai'
-  gem 'test-kitchen'
-  gem 'kitchen-vagrant'
-  gem 'winrm-fs'
-  gem 'kitchen-docker'
-  gem 'kitchen-localhost'
+end
+
+group :lint do
+  gem 'foodcritic'
+  gem 'rubocop'
 end
 
 group :integration do
+  gem 'kitchen-docker'
+  gem 'kitchen-localhost'
+  gem 'kitchen-vagrant'
   gem 'serverspec'
+  gem 'test-kitchen'
+  gem 'winrm-fs'
 end
 
-group :deploy do
+group :deployment do
   gem 'stove'
-end
-
-group :production do
-  gem 'chef', '>= 12.5'
-  gem 'berkshelf'
 end

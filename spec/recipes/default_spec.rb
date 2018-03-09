@@ -1,10 +1,10 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
 
 describe 'x2go-client::default' do
-  let(:runner) { ChefSpec::SoloRunner.new }
+  let(:platform) { { platform: 'ubuntu', version: '16.04' } }
+  let(:runner) { ChefSpec::SoloRunner.new(platform) }
   let(:chef_run) { runner.converge(described_recipe) }
 
   it 'creates an x2go_client resource' do

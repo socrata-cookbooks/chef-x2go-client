@@ -1,5 +1,5 @@
-X2go Client Cookbook
-====================
+# X2go Client Cookbook
+
 [![Cookbook Version](https://img.shields.io/cookbook/v/x2go-client.svg)][cookbook]
 [![OS X Build Status](https://img.shields.io/travis/socrata-cookbooks/x2go-client.svg)][travis]
 [![Windows Build Status](https://img.shields.io/appveyor/ci/socrata-cookbooks/x2go-client.svg)][appveyor]
@@ -16,29 +16,25 @@ X2go Client Cookbook
 
 A Chef cookbook for the X2go remote desktop client.
 
-Requirements
-============
+## Requirements
 
 This cookbook requires Chef 12.6+.
 
 It currently supports Mac OS X, Windows, Ubuntu, and Red Hat/CentoS/Scientific/
 etc.
 
-Usage
-=====
+## Usage
 
 Add the default recipe to your run_list or use one or more of the included
 resources in a recipe of your own.
 
-Recipes
-=======
+## Recipes
 
 ***default***
 
 Do a simple attribute-based install of the X2go client.
 
-Attributes
-==========
+## Attributes
 
 ***default***
 
@@ -46,8 +42,7 @@ Attributes
 
 An optioanl source URL or file path to install the X2go client package from.
 
-Resources
-=========
+## Resources
 
 ***x2go_client***
 
@@ -99,59 +94,6 @@ Attributes:
 | source    | `nil`      | An optional custom package path/URL |
 | action    | `:install` | Action(s) to perform                |
 
-Providers
-=========
+## Maintainers
 
-***Chef::Provider::X2goClient***
-
-Platform-agnostic provider that wraps each of the X2go client component
-resources.
-
-***Chef::Provider::X2goClientApp***
-
-The parent for all platform-specific X2go client app package providers.
-
-***Chef::Provider::X2goClientApp::Rhel***
-
-App package provider for RHEL and RHEL-alike platforms.
-
-***Chef::Provider::X2goClientApp::MacOsX***
-
-App package provider for OS X platforms.
-
-***Chef::Provider::X2goClientApp::Ubuntu***
-
-App package provider for Ubuntu platforms.
-
-
-***Chef::Provider::X2goClientApp::Windows***
-
-App package provider for Windows platforms.
-
-Contributing
-============
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Add tests for the new feature; ensure they pass (`rake`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new Pull Request
-
-License & Authors
-=================
 - Author: Jonathan Hartman <jonathan.hartman@socrata.com>
-
-Copyright 2015-2016, Socrata, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.

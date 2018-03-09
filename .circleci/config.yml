@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -P chefdk
+      - run: chef exec bundle install --without=development
+      - run: cp .kitchen.circle.yml .kitchen.local.yml
+      - run: chef exec rake
+      - run: chef exec kitchen test

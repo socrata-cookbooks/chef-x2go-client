@@ -8,10 +8,11 @@ provisioner:
 platforms:
   - name: ubuntu-16.04
   - name: ubuntu-14.04
-  - name: debian-8.2
-  - name: centos-7.1
-  - name: centos-6.7
-  - name: fedora-21
+  - name: debian-9.3
+  - name: debian-8.10
+  - name: centos-7.4
+  - name: centos-6.9
+  - name: fedora-27
   - name: macosx-10.10
     driver:
       box: roboticcheese/macosx-10.10
@@ -20,7 +21,6 @@ platforms:
   - name: windows-2012
     driver:
       box: roboticcheese/windows-2012
-  # TODO: - name: ubuntu-12.04
 
 suites:
   - name: default

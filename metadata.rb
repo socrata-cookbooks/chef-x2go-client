@@ -1,10 +1,9 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 name 'x2go-client'
-maintainer 'Jonathan Hartman'
-maintainer_email 'jonathan.hartman@socrata.com'
-license 'apache2'
+maintainer 'Socrata Engineering'
+maintainer_email 'sysadmin@socrata.com'
+license 'Apache-2.0'
 description 'Installs/Configures x2go-client'
 long_description 'Installs/Configures x2go-client'
 version '1.1.1'
